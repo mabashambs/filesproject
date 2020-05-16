@@ -1,0 +1,68 @@
+{% extends 'filesapp/base.html' %}
+
+{% block body_block %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Trade+Winds&display=swap" rel="stylesheet">
+    <style media="screen">
+    body{
+      background: url(https://images.unsplash.com/photo-1471970471555-19d4b113e9ed?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60);
+      background-repeat: no-repeat;
+      background-size: cover;
+      font-family: 'Trade Winds';
+    }
+    th{
+      border: solid blue 2px;
+      background-color: black;
+      color: white;
+      padding: 10px;
+    }
+    td{
+padding: 20px;
+    }
+    table{
+      margin-left: 350px;
+      margin-top: 15px;
+    }
+    h1{
+      margin-left: 350px;
+      margin-top: 100px;
+    }
+    #mbs{
+      margin-left: 500px;
+      margin-top: 5px;
+    }
+td{
+    border: solid red 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <u><em><h1>STORED BOOKS</h1></em></u>
+    <table>
+      <thead>
+        <th>&nbsp&nbspTitle</th>
+        <th>&nbspauther</th>
+        <th>&nbspPDF</th>
+      </thead>
+      <tbody>
+        {% for book in books %}
+        <tr>
+          <td>{{ book.title }}</td>
+          <td>{{ book.auther }}</td>
+          <td> <a href="{{ book.pdf.url }}" class="btn btn-primary btn-sm" target="_blank">download</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  <a href="/" style="background:red;" class='btn btn-primary btn-lg' id="mbs">HOME</a>&nbsp&nbsp&nbsp
+</div>
+  </body>
+</html>
+
+{% endblock %}
